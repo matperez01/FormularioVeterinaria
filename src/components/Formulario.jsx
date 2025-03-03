@@ -21,7 +21,7 @@ useEffect(() => {
     setArray(data);
     
   }
-})
+},[])
 
 const handleChange = (e)=>{
   
@@ -56,8 +56,16 @@ const handleSubmit = (e)=>{
 
   
   agregarUsuario(Formulario)
-  window.location.reload()
+
+  setArray([...array,Formulario])
   alert("Sus datos fueron cargados con exito")
+  setFormulario({
+    nombreMascota: "",
+    nombreDueño: "",
+    fecha: "",
+    hora: "",
+    sintomas: "",
+  });
 }
 
   return (
