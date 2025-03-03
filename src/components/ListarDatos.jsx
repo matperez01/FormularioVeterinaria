@@ -4,15 +4,16 @@ export const ListarDatos = ({ array, setArray }) => {
     const handleDelete = (id) => {
         const nuevoArray = array.filter((paciente) => paciente.id !== id);
         setArray(nuevoArray);
-        window.location.reload(true);
         localStorage.setItem("userData", JSON.stringify(nuevoArray)); 
+        window.location.reload()
+        
     };
 
     return (
         <>
             <h1 className='text-2xl border-b-2 font-light'>Lista de Turnos</h1>
             <section className='flex flex-wrap justify-center items-center'>
-                {array.length > 0 ? (
+            {array.length > 0 ? (
                     array.map((datos) => (
                         <section key={datos.id} className='bg-[rgb(184,149,200)] w-80 p-1 drop-shadow-md m-3'>
                             <article className='flex-col items-center justify-around'>
@@ -51,7 +52,11 @@ export const ListarDatos = ({ array, setArray }) => {
                         </section>
                     ))
                 ) : (
-                    "Lista vacía"
+                    <div className="col-12">
+                <div className="alert alert-info text-center">
+                 No hay usuarios registrados.
+                </div>
+                  </div>
                 )}
             </section>
         </>
