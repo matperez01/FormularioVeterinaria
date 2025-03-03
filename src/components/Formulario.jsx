@@ -29,6 +29,13 @@ const handleChange = (e)=>{
     [e.target.name]: e.target.value})
 }
 
+const handleDelete = (id) => {
+  const nuevoArray = array.filter((paciente) => paciente.id !== id);
+  setArray(nuevoArray);
+
+  localStorage.setItem("userData", JSON.stringify(nuevoArray)); 
+  window.location.reload()
+};
 
 
 const handleSubmit = (e)=>{
@@ -49,7 +56,7 @@ const handleSubmit = (e)=>{
 
   
   agregarUsuario(Formulario)
-  window.location.reload(true);
+  window.location.reload()
   alert("Sus datos fueron cargados con exito")
 }
 
@@ -132,7 +139,7 @@ const handleSubmit = (e)=>{
         
         
     </section>
-     <ListarDatos array={array} setArray={setArray} /> 
+     <ListarDatos array={array} handleDelete={handleDelete} /> 
     </>
   );
 }
