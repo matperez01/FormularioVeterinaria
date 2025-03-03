@@ -49,7 +49,7 @@ export const ListarDatos = ({ array, handleDelete }) => {
                 ) : (
                     <div className="col-12">
                 <div className="alert alert-info text-center">
-                 No hay usuarios registrados.
+                 No hay ningun turno agendado
                 </div>
                   </div>
                 )}
